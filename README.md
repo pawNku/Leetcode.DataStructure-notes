@@ -4,9 +4,10 @@ Leetcode之分类刷题之数据结构部分~
 ## No->1.数组与矩阵↓↓↓↓↓↓↓↓↓↓
 
 **109.83. Move Zeroes (Easy)：1.把数组中的0移到末尾**
-> 例如，给定nums = [0,1,0,3,12]，在调用函数后，nums应为[1,3,12,0,0]
+```
+例如，给定nums = [0,1,0,3,12]，在调用函数后，nums应为[1,3,12,0,0]
 为了干正事：放0在最后永远先异常 if(nums[i] != 0){  
-
+```
 ```
 public void moveZeroes(int[] nums){
 	if(nums==null || nums.length==0)
@@ -26,7 +27,7 @@ public void moveZeroes(int[] nums){
 ```
 
 **110.566. Reshape the Matrix (Easy)：2. 改变矩阵维度**
-
+```
 Input:
 nums =
 [[1,2],
@@ -45,10 +46,10 @@ Output:
  [3,4]]
 解释:
 没有办法将 2 * 2 矩阵转化为 2 * 4 矩阵。 所以输出原矩阵
-/*
-1.将二维的转成一维的  每遍历到一个数则index++
-2.将一维的转成二维的  = m[cur/c,cur%c];
-*/
+```
+
+* 1.将二维的转成一维的  每遍历到一个数则index++
+* 2.将一维的转成二维的  = m[cur/c,cur%c];
 
 * if(m * n != r * c)	res[i][j] = nums[index/c][index%c];	
 ```
@@ -72,10 +73,11 @@ public int[][] matrixReshape(int[][] nums, int r, int c) {
 
 
 **111.485. Max Consecutive Ones (Easy)：3. 找出数组中最长的连续1的个数**
-> 输入: [1,1,0,1,1,1] 输入的数组只包含 0 和1。
+```
+输入: [1,1,0,1,1,1] 输入的数组只包含 0 和1。
 输出: 3
 解释: 开头的两位和最后的三位都是连续1，所以最大连续1的个数是 3.
-
+```
 * max = Math.max(max,counts);
 
 ```
@@ -96,8 +98,8 @@ public int findMaxConsecutiveOnes(int[] nums) {
 ```
 
 **112.240. Search a 2D Matrix II (Medium)：4. 有序矩阵查找**
-
-> 编写一个高效的算法来搜索 m x n 矩阵 matrix 中的一个目标值 target。该矩阵具有以下特性：
+```
+编写一个高效的算法来搜索 m x n 矩阵 matrix 中的一个目标值 target。该矩阵具有以下特性：
 每行的元素从左到右升序排列。
 每列的元素从上到下升序排列。
 [
@@ -108,7 +110,7 @@ public int findMaxConsecutiveOnes(int[] nums) {
   [18, 21, 23, 26, 30]
 ]
 给定 target = 5，返回 true。给定 target = 20，返回 false。
-
+```
 ```
 public boolean searchMatrix(int[][] matrix, int target) {
     if (matrix == null || matrix.length == 0 || matrix[0].length == 0) 
@@ -128,8 +130,8 @@ public boolean searchMatrix(int[][] matrix, int target) {
 
   
 **113.378. Kth Smallest Element in a Sorted Matrix ((Medium))：5. 有序矩阵的 Kth Element**
-
-> 给定一个 n x n 矩阵，其中每行和每列元素均按升序排序，找到矩阵中第k小的元素。
+```
+给定一个 n x n 矩阵，其中每行和每列元素均按升序排序，找到矩阵中第k小的元素。
 请注意，它是排序后的第k小元素，而不是第k个元素。
 matrix = [
    [ 1,  5,  9],
@@ -137,7 +139,7 @@ matrix = [
    [12, 13, 15]
 ],
 k = 8,返回 13
-
+```
 * k;PriorityQueue<Integer> maxHeap = new PriorityQueue<Integer>
 	(k,new Comparator<Integer>{ }); maxHeap.add; maxHeap.poll();
 * 任何第k怎么样的-->都可以用堆解法
@@ -178,14 +180,14 @@ public int kthSmallest(int[][] matrix, int k) {
 
 
 **114.645. Set Mismatch (Easy)：6. 一个数组元素在 [1, n] 之间，**
-
->其中一个数被替换为另一个数，找出重复的数和丢失的数
+```
+其中一个数被替换为另一个数，找出重复的数和丢失的数
 集合 S 包含从1到 n 的整数。不幸的是，因为数据错误，
 导致集合里面某一个元素复制了成了集合里面的另外一个元素的值，
 导致集合丢失了一个整数并且有一个元素重复。
 输入: nums = [1,2,2,4]
 输出: [2,3]
-
+```
 * 因为1就对应的1 所以就好交换啦~
 * 主要通过交换元素 把数组上的元素放在正确的位置   
 * while(nums[index] != nums[i] return new int[]{nums[i], i + 1};    
@@ -222,10 +224,10 @@ public int[] findErrorNums(int[] nums) {
 ```
 
 **115.287. Find the Duplicate Number (Medium)：7.找出数组中重复的数，值在[1 , n]之间**
-
-> 给定一个包含 n + 1 个整数的数组 nums，其数字都在 1 到 n 之间（包括 1 和 n），
+```
+给定一个包含 n + 1 个整数的数组 nums，其数字都在 1 到 n 之间（包括 1 和 n），
 可知至少存在一个重复的整数。假设只有一个重复的整数，找出这个重复的数。
-
+```
 * if(count > mid){     
 * 找n+1的一半的下标为mid  然后用mid分收集左一半 如果左num>mid 则是较小的一部分有重复 
 ```
@@ -255,8 +257,8 @@ public int findDuplicate(int[] nums) {
 ```
 
 **116.667. Beautiful Arrangement II (Medium)：8. 数组相邻差值的个数**
-
-> 题目描述：数组元素为 1~n 的整数，要求构建数组，使得相邻元素的差值不相同的个数为 k。
+```
+题目描述：数组元素为 1~n 的整数，要求构建数组，使得相邻元素的差值不相同的个数为 k。
 输入: n = 3, k = 1
 输出: [1, 2, 3]
 解释: [1, 2, 3] 包含 3 个范围在 1-3 的不同整数， 
@@ -265,7 +267,7 @@ public int findDuplicate(int[] nums) {
 输出: [1, 3, 2]
 解释: [1, 3, 2] 包含 3 个范围在 1-3 的不同整数， 
 并且 [2, 1] 中有且仅有 2 个不同整数: 1 和 2
-
+```
 * -->注意k为2 的时候差值是(2,1) 所以差值是：k,k-1,k-2,...,1   
 * 首先关键的一点k最多是n-1 这n-1就是由较大的数和较小的数交替形成的就满足啦~
 例如n=6 k=5 则615243 or 162534 如果k=4 则615243 就是满足了3个差值(也就是i=4的数形成了)
@@ -294,12 +296,12 @@ public int[] constructArray(int n, int k) {
 ```
 
 **117.697. Degree of an Array (Easy)：9. 数组的度**
-
-> Input: [1,2,2,3,1,4,2]
+```
+Input: [1,2,2,3,1,4,2]
 Output: 6
 题目描述：数组的度定义为元素出现的最高频率，例如上面的数组度为 3。
 输出一个最小的子数组的长度，这个子数组的度和原数组一样。
-
+```
 * 很简单：HashMap统计数量用
 
 ```
@@ -331,8 +333,8 @@ class Solution {
 ```
 
 **118.766. Toeplitz Matrix (Easy)：10. 对角元素相等的矩阵**
-
-> 输入: 
+```
+输入: 
 matrix = [
   [1,2,3,4],
   [5,1,2,3],
@@ -343,7 +345,7 @@ matrix = [
 在上述矩阵中, 其对角线为:
 "[9]", "[5, 5]", "[1, 1, 1]", "[2, 2, 2]", "[3, 3]", "[4]"。
 各条对角线上的所有元素均相同, 因此答案是True。
-
+```
 * if(matrix[i][j] != matrix[i-1][j-1])   
 * 从matrix[1][1]开始遍历因为要-1的 分别和当前的左上角对比
 
@@ -362,8 +364,8 @@ public boolean isToeplitzMatrix(int[][] matrix) {
 ```
 
 **119.565. Array Nesting (Medium)：11. 嵌套数组**
-
-> Input: A = [5,4,0,3,1,6,2]
+```
+Input: A = [5,4,0,3,1,6,2]
 Output: 4
 Explanation:
 A[0] = 5, A[1] = 4, A[2] = 0, A[3] = 3, A[4] = 1, A[5] = 6, A[6] = 2.
@@ -371,7 +373,7 @@ One of the longest S[K]:
 S[0] = {A[0], A[5], A[6], A[2]} = {5, 6, 2, 0}-->满足循环了
 题目描述：假设选择索引为i的元素A[i]为S的第一个元素，S的下一个元素应该是A[A[i]]，
 之后是A[A[A[i]]]... 以此类推，不断添加直到S出现重复的元素。
-
+```
 * 其实就是找最大环：只要环起来了并且过半就行了    
 * if(max > nums.length/2) int cur = nums[nums[i]]; while(nums[i] != cur){
 
@@ -404,8 +406,8 @@ public int arrayNesting(int[] nums) {
 ```
 
 **164.769. Max Chunks To Make Sorted (Medium)：12. 分隔数组**
-
-> 数组arr是[0, 1, ..., arr.length - 1]的一种排列，我们将这个数组分割成几个“块”，
+```
+数组arr是[0, 1, ..., arr.length - 1]的一种排列，我们将这个数组分割成几个“块”，
 并将这些块分别进行排序。
 再连接起来，使得连接的结果和按升序排序后的原数组相同。
 我们最多能将数组分成多少块？
@@ -420,7 +422,7 @@ public int arrayNesting(int[] nums) {
 解释:
 我们可以把它分成两块，例如 [1, 0], [2, 3, 4]。
 然而，分成 [1, 0], [2], [3], [4] 可以得到最多的块数。
-
+```
 * 记录当前区间的max 每加入一个i   
 * 如果这个max 也就是排序的最后的right了 ==下标 就是这个区间ok的 则区间+1
 
@@ -442,24 +444,25 @@ public int maxChunksToSorted(int[] arr) {
 ## No->2.字符串↓↓↓↓↓↓↓↓↓↓
 
 **120.字符串循环移位包含**
-
-> s1 = AABCD, s2 = CDAA
+```
+s1 = AABCD, s2 = CDAA
 Return : true
 给定两个字符串 s1 和 s2，要求判定 s2 是否能够被 s1 做循环移位得到的字符串包含。
 s1 进行循环移位的结果是 s1s1 的子字符串，因此只要判断 s2 是否是 s1s1 的子字符串即可。
-
+```
 ```
 1.s1+s1
 2.s.contains(s2)
 ```
 
 **121.字符串循环移位**
-
-> s = "abcd123" k = 3
+```
+s = "abcd123" k = 3
 Return "123abcd"
 将字符串向右循环移动 k 位。
 将 abcd123 中的 abcd 和 123 单独翻转，得到 dcba321，
 然后对整个字符串进行翻转，得到 123abcd。
+```
 ```
 s1 = s.subString(0, from.length() - index)
 s2 = s.subString(from.length() - index)
@@ -467,10 +470,10 @@ reverse(s1) reverse(s2) reverse(s)
 ```
 
 **122.字符串中单词的翻转**
-
-> s = "I am a student"
+```
+s = "I am a student"
 Return "student a am I"
-
+```
 * 将每个单词翻转，然后将整个字符串翻转
 
 ```
@@ -482,13 +485,13 @@ for (int i = str.length-1; i >=0; i--) {
 ```
 
 **123.242. Valid Anagram (Easy)：两个字符串包含的字符是否完全相同**
-
-> s = "anagram", t = "nagaram", return true.
+```
+s = "anagram", t = "nagaram", return true.
 s = "rat", t = "car", return false.
 可以用 HashMap 来映射字符与出现次数，然后比较两个字符串出现的字符数量是否相同。
 由于本题的字符串只包含 26 个小写字符，
 因此可以使用长度为 26 的整型数组对字符串出现的字符进行统计，不再使用 HashMap。
-
+```
 * counts[]就可以啦
 ```
 public boolean isAnagram(String s, String t) {
@@ -513,11 +516,11 @@ public boolean isAnagram(String s, String t) {
 ```
 
 **124.409. Longest Palindrome (Easy)：计算一组字符集合可以组成的回文字符串的最大长度**
-
-> Input : "abccccdd"
+```
+Input : "abccccdd"
 Output : 7
 Explanation : "dccaccd", whose length is 7.
-
+```
 * 使用长度为 256 的整型数组来统计每个字符出现的个数，每个字符有偶数个可以用来构成回文字符串。  
 * 因为回文字符串最中间的那个字符可以单独出现，所以如果有单独的字符就把它放到最中间。    
 * 可以组成的-->这个是可以打乱的 所以不能双指针
@@ -545,8 +548,8 @@ public int longestPalindrome(String s) {
 ```
 
 **125.647. Palindromic Substrings (Medium)：回文子字符串个数**
-
-> 给定一个字符串，你的任务是计算这个字符串中有多少个回文子串。
+```
+给定一个字符串，你的任务是计算这个字符串中有多少个回文子串。
 具有不同开始位置或结束位置的子串，即使是由相同的字符组成，也会被计为是不同的子串。
 输入: "abc"
 输出: 3
@@ -554,7 +557,7 @@ public int longestPalindrome(String s) {
 输入: "aaa"
 输出: 6
 说明: 6个回文子串: "a", "a", "a", "aa", "aa", "aaa".
-
+```
 * 从字符串的某一位开始，尝试着去扩展子字符串。   
 * 如果是奇数长度，那么i位置就是中间那个字符的位置，所以我们左右两遍都从i开始遍历    
 * 如果是偶数长度的，那么i是最中间两个字符的左边那个，右边那个就是i+1   
